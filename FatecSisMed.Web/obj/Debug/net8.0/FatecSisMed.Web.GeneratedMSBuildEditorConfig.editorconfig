@@ -58,6 +58,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/iasmi/OneDrive - Fatec Centro Paula Souza/5_Semestre/Topicos Especiais/FatecSisMed-master 2/FatecSisMed-master/FatecSisMed.Web/Views/Marca/CreateMarca.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FcQ3JlYXRlTWFyY2EuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/iasmi/OneDrive - Fatec Centro Paula Souza/5_Semestre/Topicos Especiais/FatecSisMed-master 2/FatecSisMed-master/FatecSisMed.Web/Views/Marca/DeleteMarca.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FcRGVsZXRlTWFyY2EuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/iasmi/OneDrive - Fatec Centro Paula Souza/5_Semestre/Topicos Especiais/FatecSisMed-master 2/FatecSisMed-master/FatecSisMed.Web/Views/Marca/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/iasmi/OneDrive - Fatec Centro Paula Souza/5_Semestre/Topicos Especiais/FatecSisMed-master 2/FatecSisMed-master/FatecSisMed.Web/Views/Marca/UpdateMarca.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFyY2FcVXBkYXRlTWFyY2EuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/iasmi/OneDrive - Fatec Centro Paula Souza/5_Semestre/Topicos Especiais/FatecSisMed-master 2/FatecSisMed-master/FatecSisMed.Web/Views/Medico/CreateMedico.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNvXENyZWF0ZU1lZGljby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -72,6 +88,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/iasmi/OneDrive - Fatec Centro Paula Souza/5_Semestre/Topicos Especiais/FatecSisMed-master 2/FatecSisMed-master/FatecSisMed.Web/Views/Medico/UpdateMedico.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNvXFVwZGF0ZU1lZGljby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/iasmi/OneDrive - Fatec Centro Paula Souza/5_Semestre/Topicos Especiais/FatecSisMed-master 2/FatecSisMed-master/FatecSisMed.Web/Views/Remedio/CreateRemedio.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVtZWRpb1xDcmVhdGVSZW1lZGlvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/iasmi/OneDrive - Fatec Centro Paula Souza/5_Semestre/Topicos Especiais/FatecSisMed-master 2/FatecSisMed-master/FatecSisMed.Web/Views/Remedio/DeleteRemedio.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVtZWRpb1xEZWxldGVSZW1lZGlvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/iasmi/OneDrive - Fatec Centro Paula Souza/5_Semestre/Topicos Especiais/FatecSisMed-master 2/FatecSisMed-master/FatecSisMed.Web/Views/Remedio/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVtZWRpb1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/iasmi/OneDrive - Fatec Centro Paula Souza/5_Semestre/Topicos Especiais/FatecSisMed-master 2/FatecSisMed-master/FatecSisMed.Web/Views/Remedio/UpdateRemedio.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVtZWRpb1xVcGRhdGVSZW1lZGlvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/iasmi/OneDrive - Fatec Centro Paula Souza/5_Semestre/Topicos Especiais/FatecSisMed-master 2/FatecSisMed-master/FatecSisMed.Web/Views/Shared/Error.cshtml]

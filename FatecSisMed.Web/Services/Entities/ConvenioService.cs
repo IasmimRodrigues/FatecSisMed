@@ -1,5 +1,6 @@
 ﻿using FatecSisMed.Web.Models;
 using FatecSisMed.Web.Services.Interfaces;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 
@@ -18,9 +19,10 @@ public class ConvenioService : IConvenioService
 
     private const string apiEndpoint = "/api/convenio/";
 
-    public async Task<ConvenioViewModel> CreateConvenio(ConvenioViewModel convenio)
+    public async Task<ConvenioViewModel> CreateConvenio(ConvenioViewModel convenio, string token)
     {
         var client = _clientFactory.CreateClient("MedicoAPI");
+        PutTokenInHeaderAuthorization(token, client);
 
         StringContent content = new StringContent(JsonSerializer.Serialize(convenio), Encoding.UTF8, "application/json");
 
@@ -35,9 +37,10 @@ public class ConvenioService : IConvenioService
         }
     }
 
-    public async Task<bool> DeleteConvenioById(int id)
+    public async Task<bool> DeleteConvenioById(int id, string token)
     {
         var client = _clientFactory.CreateClient("MedicoAPI");
+        PutTokenInHeaderAuthorization(token, client);
 
         using (var response = await client.DeleteAsync(apiEndpoint + id))
         {
@@ -45,9 +48,10 @@ public class ConvenioService : IConvenioService
         }
     }
 
-    public async Task<ConvenioViewModel> FindConvenioById(int id)
+    public async Task<ConvenioViewModel> FindConvenioById(int id, string token)
     {
         var client = _clientFactory.CreateClient("MedicoAPI");
+        PutTokenInHeaderAuthorization(token, client);
         using (var response = await client.GetAsync(apiEndpoint + id))
         {
             if (response.IsSuccessStatusCode && response.Content is not null)
@@ -59,9 +63,10 @@ public class ConvenioService : IConvenioService
         }
     }
 
-    public async Task<IEnumerable<ConvenioViewModel>> GetAllConvenios()
+    public async Task<IEnumerable<ConvenioViewModel>> GetAllConvenios(string token)
     {
         var client = _clientFactory.CreateClient("MedicoAPI");
+        PutTokenInHeaderAuthorization(token, client);
 
         var response = await client.GetAsync(apiEndpoint);
 
@@ -73,10 +78,10 @@ public class ConvenioService : IConvenioService
         return null;
     }
 
-    public async Task<ConvenioViewModel> UpdateConvenio(ConvenioViewModel convenioViewModel)
+    public async Task<ConvenioViewModel> UpdateConvenio(ConvenioViewModel convenioViewModel, string token)
     {
         var client = _clientFactory.CreateClient("MedicoAPI");
-
+        PutTokenInHeaderAuthorization(token, client);
         ConvenioViewModel convenio = new ConvenioViewModel();
 
         using (var response = await client.PutAsJsonAsync(apiEndpoint, convenioViewModel))
@@ -90,4 +95,10 @@ public class ConvenioService : IConvenioService
         }
 
     }
+    private static void PutTokenInHeaderAuthorization(string token, HttpClient client)
+    {
+        client.DefaultRequestHeaders.Authorization =
+            new AuthenticationHeaderValue("Bearer", token);
+    }
 }
+

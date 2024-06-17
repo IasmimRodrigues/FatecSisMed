@@ -9,7 +9,7 @@ public class AppDbContext : DbContext
 
     //fazemos o mapeamento do objeto relacional do nosso BD
     public DbSet<Convenio> Convenios { get; set; }
-    public DbSet<Especialidade> Especialidades { get; set; }
+    public DbSet<Especialidade> Especialidades { get; set;}
     public DbSet<Medico> Medicos { get; set; }
 
     public DbSet<Marca> Marcas { get; set; }
@@ -19,7 +19,7 @@ public class AppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Convenio>().HasKey(c => c.Id);
-        modelBuilder.Entity<Convenio>().Property(c => c.Nome).HasMaxLength(100).IsRequired();
+        modelBuilder.Entity<Convenio>().Property(c=>c.Nome).HasMaxLength(100).IsRequired();
 
         modelBuilder.Entity<Especialidade>().HasKey(e => e.Id);
         modelBuilder.Entity<Especialidade>().Property(e => e.Nome).HasMaxLength(100).IsRequired();
@@ -37,11 +37,12 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<Marca>().Property(e => e.Nome).HasMaxLength(100).IsRequired();
 
 
+
         //relacionamentos
-        modelBuilder.Entity<Convenio>().HasMany(c => c.Medicos).WithOne(m => m.Convenio)
+        modelBuilder.Entity<Convenio>().HasMany(c => c.Medicos).WithOne(m=>m.Convenio)
             .IsRequired().OnDelete(DeleteBehavior.Cascade);
 
-        modelBuilder.Entity<Especialidade>().HasMany(e => e.Medicos).WithOne(m => m.Especialidade)
+        modelBuilder.Entity<Especialidade>().HasMany(e=>e.Medicos).WithOne(m=>m.Especialidade)
             .IsRequired().OnDelete(DeleteBehavior.Cascade);
 
         modelBuilder.Entity<Marca>().HasMany(e => e.Remedios).WithOne(m => m.Marca)

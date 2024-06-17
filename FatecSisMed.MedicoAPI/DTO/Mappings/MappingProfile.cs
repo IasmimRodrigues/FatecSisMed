@@ -11,6 +11,7 @@ public class MappingProfile : Profile
         CreateMap<Convenio, ConvenioDTO>().ReverseMap();
         CreateMap<Especialidade, EspecialidadeDTO>().ReverseMap();
         CreateMap<Medico, MedicoDTO>().ReverseMap();
-
+        CreateMap<Remedio, RemedioDTO>().ReverseMap();
+        CreateMap<Marca, MarcaDTO>().ReverseMap();
     }
 }

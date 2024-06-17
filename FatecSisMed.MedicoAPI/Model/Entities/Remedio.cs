@@ -7,6 +7,8 @@
         public decimal Preco { get; set; }
         public Marca? Marca { get; set; }
 
+      
         public int MarcaId { get; set; }
     }
 }
+

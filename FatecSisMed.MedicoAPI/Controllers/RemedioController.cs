@@ -59,7 +59,6 @@ public class RemedioController : Controller
         await _remedioService.Update(remedioDTO);
         return Ok(remedioDTO);
     }
-
     [HttpDelete("{id}")]
     public async Task<ActionResult<RemedioDTO>> Delete(int id)
     {

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FatecSisMed.MedicoAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bbd25b3543c55dd4d5b4b00f073c2ba671f35500")]
 [assembly: System.Reflection.AssemblyProductAttribute("FatecSisMed.MedicoAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FatecSisMed.MedicoAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
