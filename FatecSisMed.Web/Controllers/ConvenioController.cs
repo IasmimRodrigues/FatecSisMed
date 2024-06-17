@@ -1,5 +1,6 @@
 ﻿using FatecSisMed.Web.Models;
 using FatecSisMed.Web.Services.Interfaces;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FatecSisMed.Web.Controllers;
@@ -32,7 +33,7 @@ public class ConvenioController : Controller
     {
         if (ModelState.IsValid)
         {
-            var result = await _convenioService.CreateConvenio(convenioViewModel);
+            var result = await _convenioService.CreateConvenio(convenioViewModel, await GetAcessToken());
             if (result is not null) return RedirectToAction(nameof(Index));
         }
         else
@@ -45,7 +46,7 @@ public class ConvenioController : Controller
     [HttpGet]
     public async Task<IActionResult> UpdateConvenio(int id)
     {
-        var result = await _convenioService.FindConvenioById(id);
+        var result = await _convenioService.FindConvenioById(id, await GetAcessToken());
         if (result is null) return View("Error");
         return View(result);
     }
@@ -55,7 +56,7 @@ public class ConvenioController : Controller
     {
         if (ModelState.IsValid)
         {
-            var result = await _convenioService.UpdateConvenio(convenioViewModel);
+            var result = await _convenioService.UpdateConvenio(convenioViewModel, await GetAcessToken());
             if (result is not null)
             {
                 return RedirectToAction(nameof(Index));
@@ -67,7 +68,7 @@ public class ConvenioController : Controller
     [HttpGet]
     public async Task<ActionResult<ConvenioViewModel>> DeleteConvenio(int id)
     {
-        var result = await _convenioService.FindConvenioById(id);
+        var result = await _convenioService.FindConvenioById(id, await GetAcessToken());
         if (result is null) { return View("Error"); }
         return View(result);
     }
@@ -75,9 +76,14 @@ public class ConvenioController : Controller
     [HttpPost(), ActionName("DeleteConvenio")]
     public async Task<IActionResult> DeleteConfirmed(int id)
     {
-        var result = await _convenioService.DeleteConvenioById(id);
+        var result = await _convenioService.DeleteConvenioById(id, await GetAcessToken());
         if (!result) { return View("Error"); }
         return RedirectToAction(nameof(Index));
+    }
+
+    private async Task<string> GetAcessToken()
+    {
+        return await HttpContext.GetTokenAsync("acess_token");
     }
 
 }

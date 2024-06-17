@@ -1,5 +1,6 @@
 ﻿using FatecSisMed.Web.Models;
 using FatecSisMed.Web.Services.Interfaces;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 
@@ -18,9 +19,10 @@ public class EspecialidadeService : IEspecialidadeService
 
     private const string apiEndpoint = "/api/especialidade/";
 
-    public async Task<EspecialidadeViewModel> CreateEspecialidade(EspecialidadeViewModel especialidade)
+    public async Task<EspecialidadeViewModel> CreateEspecialidade(EspecialidadeViewModel especialidade, string token)
     {
         var client = _clientFactory.CreateClient("MedicoAPI");
+        PutTokenInHeaderAuthorization(token, client);
 
         StringContent content = new StringContent(JsonSerializer.Serialize(especialidade), Encoding.UTF8, "application/json");
 
@@ -35,9 +37,10 @@ public class EspecialidadeService : IEspecialidadeService
         }
     }
 
-    public async Task<bool> DeleteEspecialidadeById(int id)
+    public async Task<bool> DeleteEspecialidadeById(int id, string token)
     {
         var client = _clientFactory.CreateClient("MedicoAPI");
+        PutTokenInHeaderAuthorization(token, client);
 
         using (var response = await client.DeleteAsync(apiEndpoint + id))
         {
@@ -45,9 +48,10 @@ public class EspecialidadeService : IEspecialidadeService
         }
     }
 
-    public async Task<EspecialidadeViewModel> FindEspecialidadeById(int id)
+    public async Task<EspecialidadeViewModel> FindEspecialidadeById(int id, string token)
     {
         var client = _clientFactory.CreateClient("MedicoAPI");
+        PutTokenInHeaderAuthorization(token, client);
         using (var response = await client.GetAsync(apiEndpoint + id))
         {
             if (response.IsSuccessStatusCode && response.Content is not null)
@@ -59,9 +63,10 @@ public class EspecialidadeService : IEspecialidadeService
         }
     }
 
-    public async Task<IEnumerable<EspecialidadeViewModel>> GetAllEspecialidades()
+    public async Task<IEnumerable<EspecialidadeViewModel>> GetAllEspecialidades(string token)
     {
         var client = _clientFactory.CreateClient("MedicoAPI");
+        PutTokenInHeaderAuthorization(token, client);
 
         var response = await client.GetAsync(apiEndpoint);
 
@@ -73,9 +78,10 @@ public class EspecialidadeService : IEspecialidadeService
         return null;
     }
 
-    public async Task<EspecialidadeViewModel> UpdateEspecialidade(EspecialidadeViewModel especialidadeViewModel)
+    public async Task<EspecialidadeViewModel> UpdateEspecialidade(EspecialidadeViewModel especialidadeViewModel, string token)
     {
         var client = _clientFactory.CreateClient("MedicoAPI");
+        PutTokenInHeaderAuthorization(token, client);
 
         EspecialidadeViewModel especialidade = new EspecialidadeViewModel();
 
@@ -89,5 +95,10 @@ public class EspecialidadeService : IEspecialidadeService
             return null;
         }
 
+    }
+    private static void PutTokenInHeaderAuthorization(string token, HttpClient client)
+    {
+        client.DefaultRequestHeaders.Authorization =
+            new AuthenticationHeaderValue("Bearer", token);
     }
 }

@@ -42,8 +42,8 @@ builder.Services.AddScoped<IDatabaseInitializer,
 
 builder.Services.AddScoped<IProfileService, ProfileAppService>();
 
-var app = builder.Build();
 
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -66,13 +66,15 @@ SeedDatabaseIdentityServer(app);
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{faction=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
 
 app.Run();
 
 void SeedDatabaseIdentityServer(IApplicationBuilder app)
 {
-    using (var serviceScope = app.ApplicationServices.CreateScope())
+    using(var serviceScope = app.ApplicationServices.CreateScope())
     {
         var initRoleUsers = serviceScope.ServiceProvider
             .GetService<IDatabaseInitializer>();
@@ -83,5 +85,3 @@ void SeedDatabaseIdentityServer(IApplicationBuilder app)
 }
 
 app.MapRazorPages();
-
-app.Run();

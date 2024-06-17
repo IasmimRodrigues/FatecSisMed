@@ -40,19 +40,19 @@ namespace FatecSisMed.IdentityServer.SeedDataBase.Entities
         }
         public void InitializeSeedUsers()
         {
-            if (_userManager.FindByEmailAsync("tamiris@gmail.com").Result is null)
+            if (_userManager.FindByEmailAsync("admin@gmail.com").Result is null)
             {
                 ApplicationUser admin = new ApplicationUser()
                 {
-                    UserName = "tamiris",
-                    NormalizedUserName = "TAMIRIS",
-                    Email = "tamiris@gmail.com",
-                    NormalizedEmail = "EMERSON@GMAIL.COM",
+                    UserName = "admin",
+                    NormalizedUserName = "ADMIN",
+                    Email = "admin@gmail.com",
+                    NormalizedEmail = "ADMIN@GMAIL.COM",
                     EmailConfirmed = true,
                     LockoutEnabled = false,
-                    PhoneNumber = "+55(17)997197663",
+                    PhoneNumber = "+55(11)111111111",
                     FirstName = "Usuario",
-                    LastName = "Tamiris",
+                    LastName = "Admin",
                     SecurityStamp = Guid.NewGuid().ToString(),
                 };
                 IdentityResult resultAdmin = _userManager.CreateAsync(admin, "Admin@1234").Result;

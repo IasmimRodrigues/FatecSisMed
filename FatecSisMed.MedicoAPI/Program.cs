@@ -29,10 +29,16 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IConvenioRepository, ConvenioRepository>();
 builder.Services.AddScoped<IEspecialidadeRepository, EspecialidadeRepository>();
 builder.Services.AddScoped<IMedicoRepository, MedicoRepository>();
+builder.Services.AddScoped<IRemedioRepository, RemedioRepository>();
+builder.Services.AddScoped<IMarcaRepository, MarcaRepository>();
+
+
 
 builder.Services.AddScoped<IConvenioService, ConvenioService>();
 builder.Services.AddScoped<IEspecialidadeService, EspecialidadeService>();
 builder.Services.AddScoped<IMedicoService, MedicoService>();
+builder.Services.AddScoped<IRemedioService, RemedioService>();
+builder.Services.AddScoped<IMarcaService, MarcaService>();
 
 
 var app = builder.Build();

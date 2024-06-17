@@ -1,16 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace FatecSisMed.MedicoAPI.DTO.Entities;
-
-public class MarcaDTO
+namespace FatecSisMed.MedicoAPI.DTO.Entities
 {
-    public int Id { get; set; }
+    public class MarcaDTO
+    {
+        public int Id { get; set; }
 
-    [Required(ErrorMessage = "O nome é obrigatório!")]
-    [MinLength(3)]
-    [MaxLength(100)]
-    public string? Nome { get; set; }
+        [Required(ErrorMessage = "O nome é obrigatório!")]
+        [MinLength(3)]
+        [MaxLength(100)]
+        public string? Nome { get; set; }
 
-    public ICollection<RemedioDTO>? RemedioDTOs { get; set; }
-
+        public ICollection<RemedioDTO>? RemedioDTOs { get; set; }
+    }
 }
